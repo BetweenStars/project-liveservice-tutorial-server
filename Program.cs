@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using GameServer.Data;
 using GameServer.Repositories;
 using GameServer.Services;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,11 +12,28 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
+#region db
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")
+    ?? throw new InvalidOperationException("No DATABASE_URL Variable");
+
+var uri = new Uri(databaseUrl);
+var userInfo = uri.UserInfo.Split(":", 2);
+
+var connectionString = new NpgsqlConnectionStringBuilder
+{
+    Host = uri.Host,
+    Port = uri.Port,
+    Username = Uri.UnescapeDataString(userInfo[0]),
+    Password = Uri.UnescapeDataString(userInfo[1]),
+    Database = uri.AbsolutePath.TrimStart('/'),
+    SslMode = SslMode.Require
+}.ConnectionString;
+
 builder.Services.AddDbContext<GameDbContext>(options =>
 {
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseNpgsql(connectionString);
 });
+#endregion
 
 builder.Services.AddScoped<PlayerRepository>();
 builder.Services.AddScoped<PlayerService>();
