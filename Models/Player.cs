@@ -7,6 +7,4 @@ public class Player
     public string Uid { get; set; } = "";
 
     public int Level { get; set; }
-
-    public int Gold { get; set; }
 }
