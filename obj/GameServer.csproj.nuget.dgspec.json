@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj": {}
+    "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj": {}
   },
   "projects": {
-    "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj": {
+    "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj",
+        "projectUniqueName": "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj",
+        "projectPath": "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj",
         "packagesPath": "/Users/betweenstars/.nuget/packages/",
-        "outputPath": "/Users/betweenstars/Documents/개발/Server/GameServer/obj/",
+        "outputPath": "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/betweenstars/.nuget/NuGet/NuGet.Config"

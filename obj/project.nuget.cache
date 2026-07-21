@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WeWZD96g5FA=",
+  "dgSpecHash": "u+LmIKKaj14=",
   "success": true,
-  "projectFilePath": "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj",
+  "projectFilePath": "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj",
   "expectedPackageFiles": [
     "/Users/betweenstars/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/betweenstars/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0/microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
@@ -37,10 +37,10 @@
     {
       "code": "NU1903",
       "level": "Warning",
-      "message": "'Microsoft.OpenApi' 2.0.0 패키지에 알려진 높음 심각도 취약성인 https://github.com/advisories/GHSA-v5pm-xwqc-g5wc이(가) 있습니다.",
-      "projectPath": "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj",
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/betweenstars/Documents/개발/Server/GameServer/GameServer.csproj",
+      "filePath": "/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/GameServer.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"
