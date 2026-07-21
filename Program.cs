@@ -13,21 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 #region db
-var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")
-    ?? throw new InvalidOperationException("No DATABASE_URL Variable");
-
-var uri = new Uri(databaseUrl);
-var userInfo = uri.UserInfo.Split(":", 2);
-
-var connectionString = new NpgsqlConnectionStringBuilder
-{
-    Host = uri.Host,
-    Port = uri.Port,
-    Username = Uri.UnescapeDataString(userInfo[0]),
-    Password = Uri.UnescapeDataString(userInfo[1]),
-    Database = uri.AbsolutePath.TrimStart('/'),
-    SslMode = SslMode.Require
-}.ConnectionString;
+var connectionString = 
+    builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("No ConnectionString:DefaultConnection Setting");
 
 builder.Services.AddDbContext<GameDbContext>(options =>
 {
