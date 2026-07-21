@@ -25,6 +25,7 @@ builder.Services.AddDbContext<GameDbContext>(options =>
 
 builder.Services.AddScoped<PlayerRepository>();
 builder.Services.AddScoped<PlayerService>();
+builder.Services.AddScoped<AuthService>();
 
 var app = builder.Build();
 
