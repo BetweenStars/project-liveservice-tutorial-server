@@ -365,3 +365,12 @@
 /Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/obj/Debug/net10.0/GameServer.pdb
 /Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/obj/Debug/net10.0/GameServer.genruntimeconfig.cache
 /Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/obj/Debug/net10.0/ref/GameServer.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/FirebaseAdmin.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/Google.Api.Gax.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/Google.Api.Gax.Rest.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/Google.Apis.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/Google.Apis.Auth.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/Google.Apis.Core.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/System.Management.dll
+/Users/betweenstars/Documents/GitHub/project-liveservice-tutorial-server/bin/Debug/net10.0/runtimes/win/lib/net7.0/System.Management.dll

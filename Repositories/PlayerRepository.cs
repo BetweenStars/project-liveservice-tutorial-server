@@ -16,7 +16,7 @@ public class PlayerRepository
     public async Task<Player?> GetByUidAsync(string uid)
     {
         return await _db.Players
-            .FirstOrDefaultAsync(x => x.Uid == uid);
+            .FirstOrDefaultAsync(x => x.FirebaseUid == uid);
     }
 
     public async Task SaveAsync(Player player)

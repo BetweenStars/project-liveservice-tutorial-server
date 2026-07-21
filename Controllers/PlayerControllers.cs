@@ -1,3 +1,4 @@
+using FirebaseAdmin.Auth;
 using GameServer.Data;
 using GameServer.Models;
 using GameServer.Services;
@@ -17,24 +18,35 @@ public class PlayerController : ControllerBase
         _service = service;
     }
 
-    [HttpGet("{Uid}")]
-    public async Task<IActionResult> GetPlayer(string uid)
+    [HttpGet]
+    public async Task<IActionResult> GetPlayer()
     {
-        var player = await _service.GetPlayerAsync(uid);
+        string? authorization = Request.Headers.Authorization;
 
-        if (player == null)
+        if (string.IsNullOrWhiteSpace(authorization) ||
+            !authorization.StartsWith("Bearer "))
+        {
+            return Unauthorized();
+        }
 
-            return NotFound();
+        string token = authorization["Bearer ".Length..];
 
-        return Ok(player);
-    }
+        try
+        {
+            FirebaseToken decodedToken =
+                await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(token);
 
-    [HttpPost("save")]
-    public async Task<IActionResult> SavePlayer([FromBody] Player player)
-    {
-        await _service.SavePlayerAsync(player);
+            string firebaseUid = decodedToken.Uid;
 
-        return Ok();
+            return Ok(new
+            {
+                FirebaseUid = firebaseUid
+            });
+        }
+        catch
+        {
+            return Unauthorized();
+        }
     }
 
     [HttpPost("position")]
