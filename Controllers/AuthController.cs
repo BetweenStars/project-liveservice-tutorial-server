@@ -19,14 +19,14 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponse>> Login([FromBody] AuthRequest request)
     {
-        if (string.IsNullOrWhiteSpace(request.Token))
+        if (string.IsNullOrWhiteSpace(request.IdToken))
         {
             return BadRequest("Firebase Token Needed");
         }
 
         try
         {
-            Player player = await _authService.AuthenticateAsync(request.Token);
+            Player player = await _authService.AuthenticateAsync(request.IdToken);
 
             return Ok(new AuthResponse
             {
