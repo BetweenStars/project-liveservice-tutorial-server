@@ -31,7 +31,7 @@ public class AuthController : ControllerBase
             return Ok(new AuthResponse
             {
                 Id = player.Id,
-                NickName = player.Nickname
+                Nickname = player.Nickname
             });
         }
         catch (FirebaseAdmin.Auth.FirebaseAuthException e)
