@@ -19,6 +19,8 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponse>> Login([FromBody] AuthRequest request)
     {
+        _logger.LogInformation(request.IdToken);
+
         if (string.IsNullOrWhiteSpace(request.IdToken))
         {
             return BadRequest("Firebase Token Needed");
@@ -30,11 +32,11 @@ public class AuthController : ControllerBase
 
             return Ok(new AuthResponse
             {
-               Id=player.Id,
-               NickName = player.Nickname 
+                Id = player.Id,
+                NickName = player.Nickname
             });
         }
-        catch(FirebaseAdmin.Auth.FirebaseAuthException e)
+        catch (FirebaseAdmin.Auth.FirebaseAuthException e)
         {
             _logger.LogWarning(
                 e,
