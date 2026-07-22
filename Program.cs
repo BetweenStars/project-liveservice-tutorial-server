@@ -1,7 +1,9 @@
 using System.Diagnostics;
+using FirebaseAdmin;
 using GameServer.Data;
 using GameServer.Repositories;
 using GameServer.Services;
+using Google.Apis.Auth.OAuth2;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
@@ -13,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 #region db
-var connectionString = 
+var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("No ConnectionString:DefaultConnection Setting");
 
@@ -25,7 +27,16 @@ builder.Services.AddDbContext<GameDbContext>(options =>
 
 builder.Services.AddScoped<PlayerRepository>();
 builder.Services.AddScoped<PlayerService>();
+
+#region auth
 builder.Services.AddScoped<AuthService>();
+
+FirebaseApp.Create(new AppOptions
+{
+    Credential = GoogleCredential.GetApplicationDefault(),
+    ProjectId = "multigame-60a72"
+});
+#endregion
 
 var app = builder.Build();
 

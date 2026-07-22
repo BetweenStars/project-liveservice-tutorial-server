@@ -19,8 +19,6 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponse>> Login([FromBody] AuthRequest request)
     {
-        _logger.LogInformation(request.IdToken);
-
         if (string.IsNullOrWhiteSpace(request.IdToken))
         {
             return BadRequest("Firebase Token Needed");
